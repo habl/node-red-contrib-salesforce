@@ -46,6 +46,14 @@ const handleInput = (node, msg) => {
 
       dmlResult
         .then((sfdcResult) => {
+          if (typeof sfdcResult == 'string') {
+             try {
+               parsedSfdcResult = JSON.parse(sfdcResult);
+               sfdcResult = parsedSfdcResult;
+             } catch (error) {
+             }
+          }
+          
           // Find the best id
           let id = msg.payload.id;
           if (sfdcResult.id) {
