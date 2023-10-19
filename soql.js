@@ -16,13 +16,12 @@ const handleInput = (node, msg) => {
         query: msg.query || config.query
       });
 
-      fnQuery = 'query';
+      const fnQuery = 'query';
       if (config.queryAll) {
         fnQuery = 'queryAll';
       }
 
-      org
-        .[fnQuery](payload)
+      org[fnQuery](payload)
         .then((results) => {
           const finalResults = results.records.map((r) => r.toJSON());
           resolve(finalResults);
