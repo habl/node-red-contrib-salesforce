@@ -16,7 +16,7 @@ const handleInput = (node, msg) => {
         query: msg.query || config.query
       });
 
-      const fnQuery = 'query';
+      let fnQuery = 'query';
       if (config.queryAll) {
         fnQuery = 'queryAll';
       }
